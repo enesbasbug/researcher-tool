@@ -91,12 +91,16 @@ const handleSubmit = (e) => {
     'PCR grade Water',
   ];
 
+  const handlePrint = () => {
+    window.print();
+  };
+
   return (
-    <div className="flex">
+    <div >
       {/* Left half */}
-
-
-      <div className="w-1/2 p-4">
+    <p className='font-bold mb-5 flex justify-center pr-10 text-xl'>PCR Master Mix Calculator</p>
+    <div className="flex">
+    <div className="w-1/2 p-4">
         <form onSubmit={handleSubmit}>
           {/* Labels and Inputs */}
         <p className='font-bold mb-5 flex justify-center pr-10 text-xl'>Composition of PCR reaction</p>
@@ -130,7 +134,7 @@ const handleSubmit = (e) => {
           <div className="flex justify-end m-10">
             <button type="button" onClick={handleReset} className="px-4 py-2 mr-2 bg-gray-400 rounded-md">Reset</button>
             <button type="submit" className="px-4 py-2 bg-blue-500 text-white rounded-md">Calculate</button>
-            <button type="button" className="px-4 py-2 ml-2 bg-green-500 text-white rounded-md">Print</button>
+            <button type="button" onClick={handlePrint} className="px-4 py-2 ml-2 bg-green-500 text-white rounded-md">Print</button>
           </div>
         
         </form>
@@ -139,7 +143,7 @@ const handleSubmit = (e) => {
       {/* Right half */}
       <div className="w-1/2 p-4">
         {/* Labels and Inputs */}
-        <p className='font-bold mb-5 flex justify-center text-xl'>PCR MasterMix Formulation for ${inputs[`input${8}`]} PCR reactions</p>
+        <p className='font-bold mb-5 flex justify-center text-xl'>PCR MasterMix Formulation for  <span className="text-red-500 border px-2"> {inputs[`input${8}`]} </span>  PCR reactions</p>
         {Array.from({ length: 7 }).map((_, index) => (
           <div key={index} className="mb-4">
             <label htmlFor={`input${index + 9}`} className="block mb-2">{`${labelNames[index]}`}</label>
@@ -178,6 +182,7 @@ const handleSubmit = (e) => {
             />  µl
 
       </div>
+    </div>
     </div>
   );
 };
