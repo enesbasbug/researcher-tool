@@ -36,9 +36,9 @@ const DSMassEnds = () => {
   const calculate = () => {
     const convertedNum1 = convertedNum(number1, unit1); // Insert DNA length
     const convertedNum2 = convertedNum(number2, unit2); // Vector DNA length
-    const convertedNum3 = convertedNum(number3, unit3); // Vector DNA mass
+    // const convertedNum3 = convertedNum(number3, unit3); // Vector DNA mass
 
-    const resultInMeters = (convertedNum3 / convertedNum2) * convertedNum1;
+    const resultInMeters = (number3 / convertedNum2) * convertedNum1;
     setResult(resultInMeters);
   };
 
@@ -51,18 +51,18 @@ const DSMassEnds = () => {
         return value * 1000;
       
       // DNA Mass
-      case 'g':
-        return value * 1;
-      case 'mg':
-        return value * 1000;
-      case 'ug':
-        return value * 1000000;
-      case 'ng':
-        return value * 1000000000;
-      case 'pg':
-        return value * 1000000000000;
-      case 'fg':
-        return value * 1000000000000000;
+      // case 'g':
+      //   return value * 1;
+      // case 'mg':
+      //   return value * 1000;
+      // case 'ug':
+      //   return value * 1000000;
+      // case 'ng':
+      //   return value * 1000000000;
+      // case 'pg':
+      //   return value * 1000000000000;
+      // case 'fg':
+      //   return value * 1000000000000000;
       default:
         console.log(console.error("Any error maybeeee?"))
         return value;
@@ -117,23 +117,23 @@ const DSMassEnds = () => {
               />
             </label>
             <select value={unit3} onChange={handleUnit3Change}>
-              <option value="g">g</option>
-              <option value="mg">mg</option>
-              <option value="ug">μg</option>
+              {/* <option value="g">g</option> */}
+              {/* <option value="mg">mg</option> */}
+              {/* <option value="ug">μg</option> */}
               <option value="ng">ng</option>
-              <option value="pg">pg</option>
-              <option value="fg">fg</option>
+              {/* <option value="pg">pg</option>
+              <option value="fg">fg</option> */}
             </select>
           </div>
         </div>
         <div className="ml-10 flex flex-col ">
           <div className="w-auto flex flex-col gap-y-2 p-1 bg-gray-400">
             <h3>Multiplier:</h3>
-            <p className='border bg-blue-200 p-2'> {(result*1).toFixed(2)} (1:1)</p>
-            <p className='border bg-blue-200 p-2'> {(result*2).toFixed(2)} (2:1)</p>
-            <p className='border bg-blue-200 p-2'> {(result*3).toFixed(2)} (3:1)</p>
-            <p className='border bg-blue-200 p-2'> {(result*5).toFixed(2)} (5:1)</p>
-            <p className='border bg-blue-200 p-2'> {(result*7).toFixed(2)} (7:1)</p>
+            <p className='border bg-blue-200 p-2'> {(result*1).toFixed(2)} ng (1:1)</p>
+            <p className='border bg-blue-200 p-2'> {(result*2).toFixed(2)} ng (2:1)</p>
+            <p className='border bg-blue-200 p-2'> {(result*3).toFixed(2)} ng (3:1)</p>
+            <p className='border bg-blue-200 p-2'> {(result*5).toFixed(2)} ng (5:1)</p>
+            <p className='border bg-blue-200 p-2'> {(result*7).toFixed(2)} ng (7:1)</p>
             
           </div>
         </div>
